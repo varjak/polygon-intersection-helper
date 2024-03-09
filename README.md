@@ -1,4 +1,3 @@
-This algorithm finds if two polygons intersect. For the intersection to exist, the intersection area must be > 0. In other words, their interiors must intersect.
+This algorithm finds if two polygons intersect. For the intersection to exist, the intersection area must be > 0. In other words, their interiors must intersect. For example, polygons are considered to not intersect in the first case, but to intersect in the second:
 
-![What is this](polygon-intersection-example.png)
-![Intersection example](https://github.com/[varjak]/[polygon-intersection-helper]/blob/[main]/polygon-intersection-example.png?raw=true)
+![Intersection example](polygon-intersection-example.png)
