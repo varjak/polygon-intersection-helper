@@ -1,10 +1,12 @@
 # Polygon intersection helper
 
-This algorithm finds if two polygons intersect. For the intersection to exist, the intersection area must be > 0. In other words, their interiors must intersect. 
+This algorithm finds if two simple polygons intersect. For the intersection to exist, the intersection area must be > 0. In other words, their interiors must intersect. 
 
 For example, the black and red polygons do not intersect in the first case, but intersect in the second:
 
 ![Intersection example](polygon-intersection-example.png)
+
+Both polygons must be arrays of 2D point coordinates, ordered counter-clockwise. In principle, the algorithm should work on non-simple polygons with holes, it just needs to be adapted to accept variables representing such polygons (such as an array with an array for each polygon border).
 
 To use it,  call `checkIfPolygonsIntersect()` like:
 
