@@ -5,3 +5,11 @@ This algorithm finds if two polygons intersect. For the intersection to exist, t
 For example, the black and red polygons do not intersect in the first case, and intersect in the second:
 
 ![Intersection example](polygon-intersection-example.png)
+
+To use it,  call `checkIfPolygonsIntersect()` like:
+
+```
+const polygon1 = [[0,0],[1,0],[1,1],[0,1]];
+const polygon2 = [[0,-1],[2,0.5],[0,2]];
+PolygonIntersectionHelper.checkIfPolygonsIntersect(polygon1, polygon2);
+```
