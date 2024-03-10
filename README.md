@@ -13,5 +13,5 @@ To use it,  call `checkIfPolygonsIntersect()` like:
 ```
 const polygon1 = [[0,0],[1,0],[1,1],[0,1]];
 const polygon2 = [[0,-1],[2,0.5],[0,2]];
-PolygonIntersectionHelper.checkIfPolygonsIntersect(polygon1, polygon2);
+checkIfPolygonsIntersect(polygon1, polygon2);
 ```
