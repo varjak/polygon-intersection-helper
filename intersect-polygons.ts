@@ -146,7 +146,7 @@ export class PolygonIntersectionHelper{
         const C = horizontalLinePoint;
         const AyCyBy = (((A[1] - tolerance) < C[1]) && ((B[1] - tolerance) > C[1])); // This checks if horizontal line crosses line segment (with a positive margin below and a negative margin above)
         const ByCyAy = (((A[1] - tolerance) > C[1]) && (B[1] - tolerance < C[1]));
-        return ( AyCyBy || ByCyAy ) &&  (C[0] < ((B[0] - A[0]) * (C[1] - A[1]) / (A[1] - B[1]) + B[0] - tolerance));  // If line crosses line segment to the right
+        return (AyCyBy || ByCyAy) && (C[0] < ((B[0] - A[0]) * (C[1] - A[1]) / (B[1] - A[1]) + A[0] - tolerance));  // If line crosses line segment to the right
     }
 
     public static checkIfNumberIsOdd(n: number) {
