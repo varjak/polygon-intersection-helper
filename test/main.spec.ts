@@ -95,6 +95,15 @@ describe('checkIfPolygonsIntersect', () => {
         });
     });
 
+    describe('when polygon1 and polygon2 something something', () => {
+        it('should intersect', () => {
+            polygon1 = [[0, 0], [2, 0], [6, 0], [0, 3.75]];
+            polygon2 = [[6, 0], [9, 9], [3, 10], [2, 9], [-2, 5]];  // false
+            const result = checkIfPolygonsIntersect(polygon1, polygon2);
+            expect(result).toBe(false);
+        });
+    });
+
     describe('when polygon1 and polygon2 are empty arrays', () => {
         it('should not intersect', () => {
             polygon1 = [];
