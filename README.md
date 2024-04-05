@@ -17,7 +17,7 @@ const polygonsIntersect = checkIfPolygonsIntersect(polygon1, polygon2);
 const intersectionPolygons = findIntersectionBetweenPolygons(polygon1, polygon2);
 ```
 
-Here are more tests either functions passed:
+Here are more tests either function passed:
 ⠀ | ⠀ | ⠀ | ⠀ |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
 ![Intersection example](test/test-00-intersection-true.png) Test 01. Intersection: true |  ![Intersection example](test/test-01-intersection-true.png) Test 02. Intersection: true | ![Intersection example](test/test-02-intersection-false.png) Test 03. Intersection: false | ![Intersection example](test/test-03-intersection-true.png) Test 04. Intersection: true
