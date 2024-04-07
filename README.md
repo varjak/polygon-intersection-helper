@@ -10,7 +10,7 @@ For an intersection to exist, the intersection area must be > 0. In other words,
 |:-------------------------:|:-------------------------:|
 ![Intersection example](test/test-08-intersection-false.png) | ![Intersection example](test/test-09-intersection-true.png)
 
-For more examples, check below the table of tests each algortihm was submitted to.
+For more examples, check below the table of tests both algortihms were submitted to.
 
 
 ## How the algorithms work ##
