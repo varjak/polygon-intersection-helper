@@ -1,14 +1,26 @@
 # Polygon intersection helper
 
-This algorithm checks and finds the intersection of two simple polygons. For the intersection to exist, the intersection area must be > 0. In other words, their interiors must intersect. 
+This module has an algorithm to check if two simple polygons intersect, and another to find the intersection polygons. 
 
-For example, the black and red polygons do not intersect in the first case, but intersect in the second:
+## Definition of intersection ##
+For an intersection to exist, the intersection area must be > 0. In other words, the polygon interiors must intersect. For example, the orange and blue polygons do not intersect in the first case, but intersect in the second:
 
-![Intersection example](polygon-intersection-example.png)
+⠀ | ⠀ |
+|:-------------------------:|:-------------------------:|
+![Intersection example](test/test-08-intersection-false.png) | ![Intersection example](test/test-09-intersection-true.png)
 
-Both polygons must be arrays of 2D point coordinates, ordered counter-clockwise. In principle, the algorithm should work on non-simple polygons with holes, it just needs to be adapted to accept variables representing such polygons (such as an array with an array for each polygon border).
+For more examples, check below the table of tests each algortihm was submitted to.
 
-To check if the intersection exists, you may call `checkIfPolygonsIntersect()`, and to find the intersection polygons, call `findIntersectionBetweenPolygons()`, like:
+## How the algorithms work ##
+The algorithm to check if the intersection exists was based on the observation that an intersection occurs if one of the following criteria is fulfilled:
+1. An edge of one polygon crosses an edge of the other;
+2. A point of one polygon lies inside the other;
+3. A point of one polygon lies on an edge of the other, in such a way that the interior of the point's corner intersects the interior of the other polygon;
+
+The algorithm to find the intersection polygons was then designed to apply these three tests in an iterative fashion and save the points it considers be part of the intersection polygon.
+
+## How to use them ##
+To use each algorithm, both polygons must be arrays of 2D point coordinates, ordered counter-clockise. Then, they may be called like:
 
 ```
 const polygon1 = [[0,0],[1,0],[1,1],[0,1]];
@@ -17,7 +29,7 @@ const polygonsIntersect = checkIfPolygonsIntersect(polygon1, polygon2);
 const intersectionPolygons = findIntersectionBetweenPolygons(polygon1, polygon2);
 ```
 
-Here are more tests either function passed:
+## Validation tests ##
 ⠀ | ⠀ | ⠀ | ⠀ |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
 ![Intersection example](test/test-00-intersection-true.png) Test 01. Intersection: true |  ![Intersection example](test/test-01-intersection-true.png) Test 02. Intersection: true | ![Intersection example](test/test-02-intersection-false.png) Test 03. Intersection: false | ![Intersection example](test/test-03-intersection-true.png) Test 04. Intersection: true
