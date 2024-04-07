@@ -19,7 +19,7 @@ The algorithm to check if the intersection exists was based on the observation t
 2. A point of one polygon lies inside the other;
 3. A point of one polygon lies on an edge of the other, in such a way that the interior of the point's corner intersects the interior of the other polygon;
 
-The algorithm to find the intersection polygons was then designed to apply these three tests in an iterative fashion and save the points it considers be part of the intersection polygon.
+The algorithm to find the intersection polygons was then designed to apply these three tests in an iterative fashion and save the points it considers to be part of the intersection polygon.
 
 
 ## How to use them ##
