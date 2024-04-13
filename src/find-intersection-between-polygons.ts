@@ -7,7 +7,7 @@ export class PolygonIntersectionHelper {
         let polygon1: [number, number][];
         let polygon2: [number, number][];
 
-        for (let i = 0; i < 16; i++) {
+        for (let i = 15; i < 17; i++) {
 
             if (i === 0) {
                 polygon1 = [[0,0],[1,0],[1,1],[0,1]];
@@ -73,10 +73,13 @@ export class PolygonIntersectionHelper {
                 polygon1 = [[2,1],[4,1],[4,6],[2,6]];
                 polygon2 = [[0,0],[5,0],[5,3],[1,3],[1,4],[2.5,4],[1,5],[1,6],[4,3],[5,7],[0,7]];
             }
+            else if (i == 16) {
+                polygon1 = [];
+                polygon2 = [];
+            }
             else {
                 return 0;
             }
-
             const intersectionPolygons = this.findIntersectionBetweenPolygons(polygon1, polygon2);
             console.log(intersectionPolygons);
             debugger;
@@ -85,13 +88,15 @@ export class PolygonIntersectionHelper {
 
     public static findIntersectionBetweenPolygons(polygon1: Polygon, polygon2: Polygon) {
 
-        let polygonIntersection;
-        polygonIntersection = this.findIntersectionOfPolygonWithPolygon(polygon1, polygon2);
-        if (this.checkIfArrayIsEmpty(polygonIntersection)) {
-            polygonIntersection = this.findIntersectionOfPolygonWithPolygon(polygon2, polygon1);
+        let polygonIntersection: Polygon[];
+        if (this.checkIfArrayIsEmpty(polygon1) || this.checkIfArrayIsEmpty(polygon2)) {
+            polygonIntersection = [];
+        } else {
+            polygonIntersection = this.findIntersectionOfPolygonWithPolygon(polygon1, polygon2);
+            if (this.checkIfArrayIsEmpty(polygonIntersection)) {
+                polygonIntersection = this.findIntersectionOfPolygonWithPolygon(polygon2, polygon1);
+            }
         }
-
-        // polygonIntersection = this.findIntersectionOfPolygonWithPolygon(polygon1, polygon2) ? [] : this.findIntersectionOfPolygonWithPolygon(polygon2, polygon1);
         return polygonIntersection;
     }
 
