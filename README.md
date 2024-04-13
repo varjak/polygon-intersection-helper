@@ -10,14 +10,14 @@ For an intersection to exist, the intersection area must be > 0. In other words,
 |:-------------------------:|:-------------------------:|
 ![Intersection example](test/test-08-intersection-false.png) | ![Intersection example](test/test-09-intersection-true.png)
 
-For more examples, check below the table of tests each algortihm was submitted to.
+For more examples, check below the table of tests both algortihms were submitted to.
 
 
 ## How the algorithms work ##
 The algorithm to check if the intersection exists was based on the observation that an intersection occurs if one of the following criteria is fulfilled:
 1. An edge of one polygon crosses an edge of the other;
 2. A point of one polygon lies inside the other;
-3. A point of one polygon lies on an edge of the other, in such a way that the interior of the point's corner intersects the interior of the other polygon;
+3. A point of one polygon lies on an edge of the other, in such a way that the interior of the point's corner intersects the interior of the other polygon.
 
 The algorithm to find the intersection polygons was then designed to apply these three tests in an iterative fashion and save the points it considers to be part of the intersection polygon.
 
