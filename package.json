@@ -23,7 +23,8 @@
   "scripts": {
     "build": "tsc && vite build",
     "dev": "tsc && vite build --watch",
-    "test": "vitest"
+    "test": "vitest",
+    "release": "release-it"
   },
   "devDependencies": {
     "@release-it/bumper": "^6.0.1",
