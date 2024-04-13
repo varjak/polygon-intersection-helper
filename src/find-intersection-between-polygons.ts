@@ -74,8 +74,8 @@ export class PolygonIntersectionHelper {
                 polygon2 = [[0,0],[5,0],[5,3],[1,3],[1,4],[2.5,4],[1,5],[1,6],[4,3],[5,7],[0,7]];
             }
             else if (i == 16) {
-                polygon1 = [];
-                polygon2 = [];
+                    polygon1 = [];
+                  polygon2 = [];
             }
             else {
                 return 0;
