@@ -30,7 +30,6 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.11.25",
-    "prettier": "^3.2.5",
     "release-it": "^17.1.1",
     "rollup-plugin-typescript-paths": "^1.5.0",
     "tslib": "^2.6.2",
