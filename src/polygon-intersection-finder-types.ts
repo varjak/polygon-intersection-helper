@@ -35,9 +35,3 @@ export interface IIntersectionCornerPoint {
 }
 
 export type IntersectionPoint = IIntersectionEdgePoint | IIntersectionCornerPoint;
-
-
-
-
-
-
