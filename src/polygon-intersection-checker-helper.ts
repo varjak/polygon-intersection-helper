@@ -1,4 +1,4 @@
-export class PolygonIntersection {
+export class PolygonIntersectionCheckerHelper {
 
     public static checkIfPolygonEdgesIntersectAnyEdge(polygon1: [number, number][], polygon2: [number, number][]) {
         for (let i = 0; i < polygon1.length; i++) {
@@ -35,7 +35,7 @@ export class PolygonIntersection {
     }
 
     public static checkIfPolygonInteriorContainsAnyPoint(polygon1: [number, number][], polygon2: [number, number][]) {
-        for (let polygon2Point of polygon2) {
+        for (const polygon2Point of polygon2) {
             const polygonCointainsPoint = this.checkIfPolygonInteriorContainsPoint(polygon1, polygon2Point);
             if (polygonCointainsPoint) {
                 return true;
@@ -68,7 +68,7 @@ export class PolygonIntersection {
 
     public static convertCollinearPointsTo1D(a: number[][], lineAxis: { o: number[], u: number[] }) {
         const points1D = [];
-        for (let p of a) {
+        for (const p of a) {
             const v = this.findVectorBetweenPoints(lineAxis.o, p);
             points1D.push(this.dot(v, lineAxis.u));
         }
@@ -149,7 +149,7 @@ export class PolygonIntersection {
     }
 
     public static checkIfPointsContainPoint(points: number[][], point: number[]) {
-        for (let p of points) {
+        for (const p of points) {
             if (this.checkIfPointsAreEqual(p, point)) {
                 return true;
             }
@@ -171,11 +171,11 @@ export class PolygonIntersection {
         return u.reduce((acc, element, i) => acc + element * v[i], 0);
     }
 
-    public static checkIfArrayIsEmpty(a: Array<any>) {
+    public static checkIfArrayIsEmpty<T>(a: Array<T>): boolean {
         return (Array.isArray(a) && a.length === 0);
     }
 
-    public static checkIfPointsAreEqual(a: Array<any>, b: Array<any>) {
+    public static checkIfPointsAreEqual(a: Array<number>, b: Array<number>): boolean {
         const tolerance = 0.0001;
         const d = this.findDistanceBetweenPoints(a, b);
         return d < tolerance;
