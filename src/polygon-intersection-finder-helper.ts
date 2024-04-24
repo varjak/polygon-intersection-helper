@@ -459,6 +459,9 @@ export class PolygonIntersectionFinderHelper {
     }
 
     public static findIntersectionBetweenLineSegments(lineSegment1: [number, number][], lineSegment2: [number, number][]) {
+        const tolerance = 0.0001;
+        const norm1 = this.findVectorNorm(this.findVectorBetweenPoints(lineSegment1[0], lineSegment1[1]));
+        const norm2 = this.findVectorNorm(this.findVectorBetweenPoints(lineSegment2[0], lineSegment2[1]));
         const a = lineSegment1[0];
         const b = lineSegment1[1];
         const c = lineSegment2[0];
@@ -467,7 +470,7 @@ export class PolygonIntersectionFinderHelper {
         if (det !== 0) {
             const lambda = ((d[1] - c[1]) * (d[0] - a[0]) + (c[0] - d[0]) * (d[1] - a[1])) / det;
             const gamma = ((a[1] - b[1]) * (d[0] - a[0]) + (b[0] - a[0]) * (d[1] - a[1])) / det;
-            if ((0 < lambda && lambda < 1) && (0 < gamma && gamma < 1)) {
+            if (((0 + tolerance) < (lambda * norm1) && (lambda * norm1) < (1 - tolerance)) && ((0 + tolerance) < (gamma * norm2) && (gamma * norm2) < (1 - tolerance))) {
                 const ab = this.findVectorBetweenPoints(a, b)
                 return this.addArray(a, this.multiplyArray(ab, lambda));
             }
