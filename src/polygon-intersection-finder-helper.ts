@@ -100,13 +100,15 @@ export class PolygonIntersectionFinderHelper {
                 }
             }
 
+            // If the first and last points are equal, remove last. It would be better if it was not necessary.
+            if (intersectionPolygon.length > 2) {
+                if (this.checkIfPointsAreEqual(intersectionPolygon[0], intersectionPolygon[intersectionPolygon.length-1])) {
+                    intersectionPolygon.pop();    
+                }
+            }
             // If polygon has at least 3 points, add it
             if (intersectionPolygon.length > 2) {
-                // If the first and last points are equal, remove last. It would be better if it was not necessary.
-                if (this.checkIfPointsAreEqual(intersectionPolygon[0], intersectionPolygon[intersectionPolygon.length - 1])) {
-                    intersectionPolygon.pop();
-                }
-                intersectionPolygons.push(intersectionPolygon);
+                intersectionPolygons.push(intersectionPolygon); 
             }
         }
         return intersectionPolygons;
@@ -457,7 +459,8 @@ export class PolygonIntersectionFinderHelper {
         const v = [u[0] * Math.cos(a) - u[1] * Math.sin(a), u[0] * Math.sin(a) + u[1] * Math.cos(a)];
         return v;
     }
-
+    
+    // https://stackoverflow.com/questions/9043805/test-if-two-lines-intersect-javascript-function
     public static findIntersectionBetweenLineSegments(lineSegment1: [number, number][], lineSegment2: [number, number][]) {
         const tolerance = 0.0001;
         const norm1 = this.findVectorNorm(this.findVectorBetweenPoints(lineSegment1[0], lineSegment1[1]));
@@ -470,7 +473,7 @@ export class PolygonIntersectionFinderHelper {
         if (det !== 0) {
             const lambda = ((d[1] - c[1]) * (d[0] - a[0]) + (c[0] - d[0]) * (d[1] - a[1])) / det;
             const gamma = ((a[1] - b[1]) * (d[0] - a[0]) + (b[0] - a[0]) * (d[1] - a[1])) / det;
-            if (((0 + tolerance) < (lambda * norm1) && (lambda * norm1) < (1 - tolerance)) && ((0 + tolerance) < (gamma * norm2) && (gamma * norm2) < (1 - tolerance))) {
+            if (((0 + tolerance) < (lambda * norm1) && (lambda * norm1) < (norm1 - tolerance)) && ((0 + tolerance) < (gamma * norm2) && (gamma * norm2) < (norm2 - tolerance)))  {
                 const ab = this.findVectorBetweenPoints(a, b)
                 return this.addArray(a, this.multiplyArray(ab, lambda));
             }
