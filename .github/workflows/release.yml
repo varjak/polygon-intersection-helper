@@ -1,10 +1,11 @@
 name: "Release & Publish to NPM"
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: "*"
 jobs:
-  release:
+  quality:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout Source Code
@@ -17,7 +18,15 @@ jobs:
         run: npm ci
       - name: Run Tests
         run: npm run test
+  publish:
+    runs-on: ubuntu-20.04
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [quality]
+    steps:
       - name: Run release
         run: npm run semantic-release
       - name: End message
         run: echo 'All done!'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
