@@ -2,6 +2,13 @@
 
 This module has an algorithm to check if two simple polygons intersect, and another to find the intersection polygons. 
 
+## Install
+
+You can install it via [npm](https://www.npmjs.com/package/polygon-intersection):
+
+```sh
+$ npm i polygon-intersection
+```
 
 ## Definition of intersection ##
 For an intersection to exist, the intersection area must be > 0. In other words, the polygon interiors must intersect. For example, the orange and blue polygons do not intersect in the first case, but intersect in the second:
@@ -25,7 +32,7 @@ The algorithm to find the intersection polygons was then designed to apply these
 ## How to use them ##
 To use each algorithm, both polygons must be arrays of 2D point coordinates, ordered counter-clockise. Then, they may be called like:
 
-```
+```typescript
 const polygon1 = [[0,0],[1,0],[1,1],[0,1]];
 const polygon2 = [[0,-1],[2,0.5],[0,2]];
 const polygonsIntersect = checkIfPolygonsIntersect(polygon1, polygon2);
