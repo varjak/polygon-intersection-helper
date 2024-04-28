@@ -8,15 +8,15 @@
   "license": "MIT",
   "private": false,
   "version": "0.0.0-development",
+  "type": "module",
+  "main": "./dist/polygon-intersection-helper.umd.cjs",
+  "module": "./dist/polygon-intersection-helper.js",
   "exports": {
     ".": {
-      "import": "./dist/main.es.js",
-      "require": "./dist/main.cjs.js"
+      "import": "./dist/polygon-intersection-helper.js",
+      "require": "./dist/polygon-intersection-helper.umd.cjs"
     }
   },
-  "main": "./dist/main.cjs.js",
-  "module": "./dist/main.es.js",
-  "typings": "./dist/main.d.ts",
   "files": [
     "dist"
   ],
