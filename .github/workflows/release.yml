@@ -1,29 +1,23 @@
-name: 'Release & Publish to NPM'
+name: "Release & Publish to NPM"
 on:
-    push:
-        branches:
-            - main
+  push:
+    branches:
+      - main
 jobs:
-    release:
-        runs-on: ubuntu-20.04
-        steps:
-            - name: Checkout Source Code
-              uses: actions/checkout@v2
-            - name: Setup Node.js
-              uses: actions/setup-node@v2
-              with:
-                  node-version: '21'
-            - name: Install Dependencies
-              run: npm ci
-            - name: Initialize Git User
-              run: |
-                  git config --global user.email "gmlcaetano@gmail.com"
-                  git config --global user.name "Release Workflow"
-            - name: Initialize NPM Config
-              run: npm config set //registry.npmjs.org/:_authToken=${{ secrets.RELEASE_NPM }}
-            - name: Run release
-              run: npm run release --ci
-              env:
-                  GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB }}
-            - name: End message
-              run: echo 'All done!'
+  release:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "21"
+      - name: Install Dependencies
+        run: npm ci
+      - name: Run Tests
+        run: npm run test
+      - name: Run release
+        run: npm run semantic-release
+      - name: End message
+        run: echo 'All done!'
