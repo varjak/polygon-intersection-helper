@@ -25,6 +25,7 @@
     "dev": "tsc && vite build --watch",
     "test": "vitest",
     "lint": "eslint src test --fix",
+    "commit": "git-cz",
     "semantic-release": "semantic-release --branches main"
   },
   "devDependencies": {
