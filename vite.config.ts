@@ -22,9 +22,9 @@ export default defineConfig({
         minify: true,
         reportCompressedSize: true,
         lib: {
-            entry: path.resolve(__dirname, "src/main.ts"),
-            fileName: "main",
-            formats: ["es", "cjs"],
+            entry: path.resolve(__dirname, 'src/main.ts'),
+            name: 'polygon-intersection',
+            fileName: 'main',
         },
         rollupOptions: {
             external: [],
@@ -40,4 +40,4 @@ export default defineConfig({
             ],
         },
     },
-});
+})
