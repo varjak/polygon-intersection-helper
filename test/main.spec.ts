@@ -1,6 +1,6 @@
 import { expect, describe, it } from 'vitest'
 import { checkIfPolygonsIntersect, findAreaOfUnionOfPolygons, findIntersectionBetweenPolygons } from '../src/main';
-import { checkIfArraysOfPolygonsAreEqual } from '../test-utils';
+import { checkIfArraysOfPolygonsAreEqual } from './test-utils';
 import { Polygon } from '../src/polygon-intersection-finder-types';
 
 describe('checkIfPolygonsIntersect', () => {
