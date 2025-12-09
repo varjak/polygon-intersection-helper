@@ -20,7 +20,7 @@ jobs:
         run: npm run test
   publish:
     runs-on: ubuntu-20.04
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' && success() }}
     needs: [quality]
     steps:
       - name: Checkout Source Code
