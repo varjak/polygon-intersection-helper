@@ -36,5 +36,7 @@ jobs:
         run: npm i
       - name: Run release
         run: npm run semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_GITHUB }}
       - name: End message
         run: echo 'All done!'
