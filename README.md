@@ -33,6 +33,11 @@ The algorithm to find the intersection polygons was then designed to apply these
 To use each algorithm, both polygons must be arrays of 2D point coordinates, ordered counter-clockise. Then, they may be called like:
 
 ```typescript
+import {
+  checkIfPolygonsIntersect,
+  findIntersectionBetweenPolygons,
+} from 'polygon-intersection';
+
 const polygon1: [number, number][] = [[0,0],[1,0],[1,1],[0,1]];
 const polygon2: [number, number][] = [[0,-1],[2,0.5],[0,2]];
 const polygonsIntersect = checkIfPolygonsIntersect(polygon1, polygon2);
