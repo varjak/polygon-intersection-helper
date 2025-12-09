@@ -31,6 +31,8 @@ jobs:
           node-version: "22"
       - name: Install Dependencies
         run: npm i
+      - name: Build Project
+        run: npm run build
       - name: Run release
         run: npm run semantic-release
         env:
