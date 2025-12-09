@@ -14,6 +14,7 @@
   ],
   "main": "./dist/main.umd.cjs",
   "module": "./dist/main.js",
+  "typings": "./dist/main.d.ts",
   "exports": {
     ".": {
       "import": "./dist/main.js",
