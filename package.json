@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/varjak/polygon-intersection-helper.git"
+    "url": "git+https://github.com/varjak/polygon-intersection-helper.git"
   },
   "config": {
     "commitizen": {
