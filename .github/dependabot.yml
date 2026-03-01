@@ -5,6 +5,11 @@ updates:
     schedule:
       interval: "weekly"
     security-updates-only: true
+    groups:
+      minors-and-patches:
+        dependency-types:
+          - "minor"
+          - "patch"
     commit-message:
       prefix: "fix"
       include: "scope"
