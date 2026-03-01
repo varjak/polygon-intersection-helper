@@ -3,7 +3,8 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+    security-updates-only: true
     commit-message:
       prefix: "fix"
       include: "scope"
