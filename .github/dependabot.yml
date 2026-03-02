@@ -4,10 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    security-updates-only: true
     groups:
       minors-and-patches:
-        dependency-types:
+        update-types:
           - "minor"
           - "patch"
     commit-message:
