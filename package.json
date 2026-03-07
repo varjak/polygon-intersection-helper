@@ -34,7 +34,7 @@
     "@eslint/js": "^9.1.1",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/node": "^v22.16.0",
-    "conventional-changelog-conventionalcommits": "^7.0.2",
+    "conventional-changelog-conventionalcommits": "^8.0.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "globals": "^15.0.0",
