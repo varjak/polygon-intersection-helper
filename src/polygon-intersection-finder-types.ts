@@ -11,27 +11,29 @@ export type Polygon = Point[];
 export type PolygonRecord = Record<number, Polygon>;
 
 export interface IEdge {
-    polygonId: number;
-    edgeId: number;
-    lineSegment: LineSegment;
+  polygonId: number;
+  edgeId: number;
+  lineSegment: LineSegment;
 }
 
 export interface ICorner {
-    polygonId: number;
-    cornerId: number;
-    coords: Corner;
+  polygonId: number;
+  cornerId: number;
+  coords: Corner;
 }
 
 export interface IIntersectionEdgePoint {
-    polygonId: number,
-    edgeId: number,
-    coord: Point
+  polygonId: number;
+  edgeId: number;
+  coord: Point;
 }
 
 export interface IIntersectionCornerPoint {
-    polygonId: number,
-    cornerId: number,
-    coord: Point
+  polygonId: number;
+  cornerId: number;
+  coord: Point;
 }
 
-export type IntersectionPoint = IIntersectionEdgePoint | IIntersectionCornerPoint;
+export type IntersectionPoint =
+  | IIntersectionEdgePoint
+  | IIntersectionCornerPoint;
