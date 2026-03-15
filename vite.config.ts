@@ -1,12 +1,15 @@
 // vite.config.ts
 import { defineConfig } from "vite";
-
-import typescript from "@rollup/plugin-typescript";
+import dts from "vite-plugin-dts";
 import path from "path";
-import { typescriptPaths } from "rollup-plugin-typescript-paths";
 
 export default defineConfig({
-    plugins: [],
+    plugins: [
+        dts({
+            include: ["src"],
+            rollupTypes: true,
+        }),
+    ],
     resolve: {
         alias: [
             {
@@ -26,18 +29,8 @@ export default defineConfig({
             name: 'polygon-intersection',
             fileName: 'main',
         },
-        rollupOptions: {
+        rolldownOptions: {
             external: [],
-            plugins: [
-                typescriptPaths({
-                    preserveExtensions: true,
-                }),
-                typescript({
-                    sourceMap: false,
-                    declaration: true,
-                    outDir: "dist",
-                }),
-            ],
         },
     },
 })
